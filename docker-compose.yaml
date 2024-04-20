@@ -5,7 +5,7 @@ services:
     container_name: mailpit
     restart: unless-stopped
     volumes:
-      - ./data:/data
+      - ./mailpit-data:/data
     ports:
       - 8025:8025
       - 1025:1025
@@ -14,3 +14,5 @@ services:
       - MP_DATABASE=/data/mailpit.db
       - MP_SMTP_AUTH_ACCEPT_ANY=1
       - MP_SMTP_AUTH_ALLOW_INSECURE=1
+      - MP_UI_AUTH_FILE=/data/authfile
+      - TZ=Europe/Madrid
